@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun Game Hub - Elon Money</title>
+  <link rel="stylesheet" href="../shared/styles.css" />
+  <link rel="stylesheet" href="elon-money.css" />
+</head>
+<body id="top" class="page-bg elon-page">
+  <header>
+    <div class="top-bar">
+      <div class="site-brand">
+        <img class="site-logo" src="../assets/homepageimg/funnyworldgamelogo.png" alt="Funny World artwork" decoding="async">
+        <div class="site-title">FUNNY WORLD</div>
+      </div>
+      <nav class="home-nav" aria-label="Primary">
+        <div class="home-nav-links">
+          <a href="../index.html">Home</a>
+          <a href="../game/game.html">Game</a>
+          <a href="../pixel-game/pixel-game.html">Pixel Game</a>
+          <a href="../story-game/story-game.html">Story Game</a>
+          <a class="active" href="../elon-money/elon-money.html">Elon Money</a>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-profile" type="button" aria-label="User profile" title="Profile" aria-controls="profile-panel" aria-expanded="false">
+            <span class="profile-avatar emoji-avatar emoji-placeholder" data-profile-avatar aria-hidden="true">?</span>
+            <span class="profile-name" data-profile-name>Guest</span>
+          </button>
+          <button class="nav-settings" type="button" aria-label="Settings" title="Settings" aria-controls="settings-overlay" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M19.14 12.94a7.7 7.7 0 0 0 .05-.94 7.7 7.7 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54a7.3 7.3 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.64 8.84a.5.5 0 0 0 .12.64l2.03 1.58a7.7 7.7 0 0 0-.05.94c0 .32.02.63.05.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.22.4.31.63.22l2.39-.96c.5.39 1.05.72 1.63.94l.36 2.54c.05.24.26.42.5.42h3.84c.25 0 .46-.18.5-.42l.36-2.54c.58-.22 1.13-.55 1.63-.94l2.39.96c.23.09.5 0 .63-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Z"/>
+          </svg>
+          </button>
+        </div>
+      </nav>
+      <div class="profile-panel" id="profile-panel" aria-hidden="true">
+        <div class="profile-panel-card">
+          <div class="profile-panel-header">
+            <span class="profile-avatar emoji-avatar emoji-placeholder" data-profile-avatar aria-hidden="true">?</span>
+            <div>
+              <div class="profile-panel-name" data-profile-name>Guest</div>
+              <div class="profile-panel-mark">Mark: <span data-profile-mark>0</span></div>
+            </div>
+          </div>
+          <div class="profile-panel-actions">
+            <button class="btn primary" type="button" data-profile-login>Guest Login</button>
+            <button class="btn ghost" type="button" data-profile-logout>Sign Out</button>
+          </div>
+          <div class="profile-hint">Create a guest profile. This replaces the current one.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="elon-page-main">
+    <section class="elon-tab-shell">
+      <section class="elon-tab-hero" aria-labelledby="elon-page-title">
+        <div class="elon-hero-copy">
+          <p class="elon-section-label">Luxury chaos</p>
+          <h1 id="elon-page-title">Spend Elon Money</h1>
+          <span class="elon-title-accent" aria-hidden="true"></span>
+          <p>Start with $200,000,000,000 and burn through a ridiculous luxury catalog.</p>
+          <p>Buy everything you can, watch the wallet shrink, and see how long Elon keeps smiling.</p>
+
+          <div class="elon-hero-stats">
+            <article class="elon-hero-stat">
+              <span>Start Money</span>
+              <strong>$200,000,000,000</strong>
+            </article>
+            <article class="elon-hero-stat">
+              <span>Catalog Total</span>
+              <strong id="catalog-total">$0</strong>
+            </article>
+            <article class="elon-hero-stat">
+              <span>Style</span>
+              <strong>Buy, sell, repeat</strong>
+            </article>
+          </div>
+        </div>
+
+        <div class="elon-hero-visual" aria-hidden="true">
+          <span class="elon-float elon-float-a"></span>
+          <span class="elon-float elon-float-b"></span>
+          <span class="elon-float elon-float-c"></span>
+          <div class="elon-hero-image"></div>
+        </div>
+      </section>
+
+      <section class="elon-dashboard">
+        <article class="elon-bank-card">
+          <div class="elon-bank-head">
+            <div>
+              <p class="elon-kicker">Wallet status</p>
+              <h2 id="money-box">$200,000,000,000</h2>
+            </div>
+            <div class="elon-bank-pill" id="shop-msg" aria-live="polite">Pick your first impossible purchase.</div>
+          </div>
+
+          <div class="elon-progress">
+            <span id="money-progress-fill"></span>
+          </div>
+
+          <p class="elon-bank-copy" id="afford-copy">He can still afford every item in the shop.</p>
+        </article>
+
+        <div class="elon-mini-stats">
+          <article class="elon-mini-card">
+            <span>Spent</span>
+            <strong id="spent-total">$0</strong>
+          </article>
+          <article class="elon-mini-card">
+            <span>In Cart</span>
+            <strong id="items-bought">0 total</strong>
+          </article>
+          <article class="elon-mini-card">
+            <span>Single Stock Left</span>
+            <strong id="items-left">2 / 2</strong>
+          </article>
+        </div>
+      </section>
+
+      <section class="elon-shop-layout">
+        <section class="elon-shop-panel">
+          <div class="elon-panel-header">
+            <div>
+              <p class="elon-kicker">Luxury store</p>
+              <h2>Item Shop</h2>
+              <p>Buy and sell anything you want. Only Private Island and YouTube Company are single-stock.</p>
+            </div>
+          </div>
+
+          <div id="shop-grid" class="elon-shop-grid"></div>
+        </section>
+
+        <aside class="elon-cart-panel">
+          <section class="elon-mood-card">
+            <div class="elon-avatar-shell">
+              <div class="elon-avatar-frame">
+                <img id="elon-face" src="../assets/elon-money/elonface1.png" alt="Elon reaction face">
+              </div>
+            </div>
+            <h3 id="elon-mood-title">Fresh Wallet Energy</h3>
+            <p id="elon-mood-copy">He has not noticed the shopping spree yet.</p>
+          </section>
+
+          <section class="elon-cart-card">
+            <div class="elon-cart-header">
+              <div>
+                <p class="elon-kicker">Purchased</p>
+                <h3>Shopping Cart</h3>
+              </div>
+              <span class="elon-cart-count" id="cart-count">0 items</span>
+            </div>
+
+            <div class="elon-cart-empty" id="cart-empty">Nothing purchased yet. Start with something absurd.</div>
+            <ul class="elon-cart-list" id="cart-list"></ul>
+
+            <div class="elon-cart-total">
+              <span>Total spent</span>
+              <strong id="cart-total">$0</strong>
+            </div>
+          </section>
+        </aside>
+      </section>
+    </section>
+  </main>
+
+  <button class="elon-back-to-top" id="elon-back-to-top" type="button" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <path d="m7 14 5-5 5 5" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+    </svg>
+  </button>
+
+  <footer class="elon-page-footer">
+    Spend Elon Money with live wallet stats, a luxury cart, and a one-stock shopping spree.
+  </footer>
+
+  <div class="settings-overlay" id="settings-overlay" aria-hidden="true">
+    <div class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="settings-header">
+        <h3 id="settings-title">Settings</h3>
+        <button class="btn ghost" type="button" data-settings-close>Close</button>
+      </div>
+      <p class="settings-subtitle">Customize your experience. Changes save to this browser.</p>
+      <div class="settings-grid">
+        <section class="settings-section">
+          <h4>Theme</h4>
+          <label class="settings-option">
+            <input type="radio" name="theme" value="light" data-setting="theme">
+            <span>Light Mode</span>
+          </label>
+          <label class="settings-option">
+            <input type="radio" name="theme" value="dark" data-setting="theme">
+            <span>Dark Mode</span>
+          </label>
+        </section>
+        <section class="settings-section">
+          <h4>Sound Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="sound">
+            <span>Sound Effects</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="music">
+            <span>Background Music</span>
+          </label>
+          <label class="settings-slider">
+            <span>Master Volume: <output id="volume-output">70</output>%</span>
+            <input type="range" min="0" max="100" value="70" data-setting="volume" id="volume-range">
+          </label>
+        </section>
+        <section class="settings-section">
+          <h4>Display Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="compact">
+            <span>Compact Layout</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="showBackground">
+            <span>Show Background Image</span>
+          </label>
+          <div class="settings-hint">Great for smaller screens or quick focus.</div>
+        </section>
+        <section class="settings-section">
+          <h4>Account Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="saveProgress">
+            <span>Save game progress on this device</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="rememberMe">
+            <span>Remember me next visit</span>
+          </label>
+          <div class="settings-hint">Account settings are stored locally.</div>
+        </section>
+        <section class="settings-section">
+          <h4>Privacy Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="shareStats">
+            <span>Share anonymous usage stats</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="personalized">
+            <span>Personalized recommendations</span>
+          </label>
+        </section>
+        <section class="settings-section">
+          <h4>Accessibility Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="largeText">
+            <span>Large text</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="reduceMotion">
+            <span>Reduce motion</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="highContrast">
+            <span>High contrast</span>
+          </label>
+        </section>
+      </div>
+      <div class="settings-actions">
+        <button class="btn" type="button" data-settings-reset>Reset to Defaults</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-overlay" id="profile-overlay" aria-hidden="true">
+    <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+      <div class="profile-header">
+        <h3 id="profile-title">Guest Login</h3>
+        <button class="btn ghost" type="button" data-profile-close>Close</button>
+      </div>
+      <p class="profile-subtitle">Choose an emoji and enter a name to create a guest profile.</p>
+      <div class="profile-preview">
+        <span class="profile-avatar large emoji-avatar emoji-placeholder" data-profile-preview-avatar aria-hidden="true">?</span>
+        <div class="profile-preview-text">
+          <div class="profile-preview-name" data-profile-preview-name>Guest</div>
+          <div class="profile-preview-mark">Mark starts at 0</div>
+        </div>
+      </div>
+      <form class="profile-form" id="profile-form">
+        <label class="profile-field">
+          <span>User Name</span>
+          <input id="profile-name" class="profile-input" type="text" maxlength="16" autocomplete="nickname" placeholder="Enter a name">
+        </label>
+        <div class="profile-field">
+          <span>Choose an emoji</span>
+          <div class="profile-emoji-grid" id="profile-emoji-grid"></div>
+        </div>
+        <div class="profile-error" id="profile-error" role="status" aria-live="polite"></div>
+        <div class="profile-actions">
+          <button class="btn primary" type="submit">Start as Guest</button>
+          <button class="btn" type="button" data-profile-cancel>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="elon-money.js"></script>
+  <script src="../shared/nav.js"></script>
+  <script src="../shared/profile.js"></script>
+  <script src="../shared/settings.js"></script>
+</body>
+</html>

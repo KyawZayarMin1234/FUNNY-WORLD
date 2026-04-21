@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fun Game Hub - Home</title>
+  <link rel="stylesheet" href="shared/styles.css" />
+  <link rel="stylesheet" href="home/home.css" />
+</head>
+<body id="top" class="home page-bg">
+  <header>
+    <div class="top-bar">
+      <div class="site-brand">
+        <img class="site-logo" src="assets/homepageimg/funnyworldgamelogo.png" alt="Funny World artwork" decoding="async">
+        <div class="site-title">FUNNY WORLD</div>
+      </div>
+      <nav class="home-nav" aria-label="Primary">
+        <div class="home-nav-links">
+          <a class="active" href="index.html">Home</a>
+          <a href="game/game.html">Game</a>
+          <a href="pixel-game/pixel-game.html">Pixel Game</a>
+          <a href="story-game/story-game.html">Story Game</a>
+          <a href="elon-money/elon-money.html">Elon Money</a>
+        </div>
+        <div class="nav-actions">
+          <button class="nav-profile" type="button" aria-label="User profile" title="Profile" aria-controls="profile-panel" aria-expanded="false">
+            <span class="profile-avatar emoji-avatar emoji-placeholder" data-profile-avatar aria-hidden="true">?</span>
+            <span class="profile-name" data-profile-name>Guest</span>
+          </button>
+          <button class="nav-settings" type="button" aria-label="Settings" title="Settings" aria-controls="settings-overlay" aria-expanded="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M19.14 12.94a7.7 7.7 0 0 0 .05-.94 7.7 7.7 0 0 0-.05-.94l2.03-1.58a.5.5 0 0 0 .12-.64l-1.92-3.32a.5.5 0 0 0-.6-.22l-2.39.96a7.3 7.3 0 0 0-1.63-.94l-.36-2.54a.5.5 0 0 0-.5-.42h-3.84a.5.5 0 0 0-.5.42l-.36 2.54a7.3 7.3 0 0 0-1.63.94l-2.39-.96a.5.5 0 0 0-.6.22L2.64 8.84a.5.5 0 0 0 .12.64l2.03 1.58a7.7 7.7 0 0 0-.05.94c0 .32.02.63.05.94l-2.03 1.58a.5.5 0 0 0-.12.64l1.92 3.32c.13.22.4.31.63.22l2.39-.96c.5.39 1.05.72 1.63.94l.36 2.54c.05.24.26.42.5.42h3.84c.25 0 .46-.18.5-.42l.36-2.54c.58-.22 1.13-.55 1.63-.94l2.39.96c.23.09.5 0 .63-.22l1.92-3.32a.5.5 0 0 0-.12-.64l-2.03-1.58ZM12 15.2a3.2 3.2 0 1 1 0-6.4 3.2 3.2 0 0 1 0 6.4Z"/>
+          </svg>
+          </button>
+        </div>
+      </nav>
+      <div class="profile-panel" id="profile-panel" aria-hidden="true">
+        <div class="profile-panel-card">
+          <div class="profile-panel-header">
+            <span class="profile-avatar emoji-avatar emoji-placeholder" data-profile-avatar aria-hidden="true">?</span>
+            <div>
+              <div class="profile-panel-name" data-profile-name>Guest</div>
+              <div class="profile-panel-mark">Mark: <span data-profile-mark>0</span></div>
+            </div>
+          </div>
+          <div class="profile-panel-actions">
+            <button class="btn primary" type="button" data-profile-login>Guest Login</button>
+            <button class="btn ghost" type="button" data-profile-logout>Sign Out</button>
+          </div>
+          <div class="profile-hint">Create a guest profile. This replaces the current one.</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="home-main">
+    <section class="home-hero">
+      <div class="home-hero-copy">
+        <p class="home-eyebrow">Welcome to</p>
+        <h1 class="home-title">FUNNY WORLD</h1>
+        <p class="home-lead">Pick a tab above to start playing.</p>
+        <p class="home-sublead">Everything is made with HTML, CSS, and JavaScript.</p>
+        <div class="home-highlight">
+          <span class="home-highlight-icon" aria-hidden="true">&#10022;</span>
+          <span>Simple, colorful, and made for quick fun.</span>
+        </div>
+      </div>
+      <div class="home-hero-art">
+        <img src="assets/homepageimg/funnyworldgamelogo.png" alt="Funny World game artwork" decoding="async">
+      </div>
+    </section>
+
+    <section class="home-section">
+      <div class="home-section-heading">
+        <span class="home-section-icon" aria-hidden="true">&#127918;</span>
+        <div>
+          <h2>Explore Categories</h2>
+          <p>Choose your favorite category and start playing!</p>
+        </div>
+      </div>
+
+      <div class="home-category-grid">
+        <article class="home-tab-card theme-game">
+          <div class="home-tab-media">
+            <img src="assets/homepageimg/gametabbg.png" alt="Game tab preview" loading="lazy" decoding="async">
+          </div>
+          <div class="home-tab-body">
+            <div class="home-tab-title-row">
+              <span class="home-tab-icon" aria-hidden="true">&#128640;</span>
+              <h3>Game Tab</h3>
+            </div>
+            <p>Endless Runner and Ball Catch. Quick action games.</p>
+            <a class="home-tab-link" href="game/game.html">Open Game Tab <span aria-hidden="true">&gt;</span></a>
+          </div>
+        </article>
+
+        <article class="home-tab-card theme-pixel">
+          <div class="home-tab-media">
+            <img src="assets/homepageimg/pixelbg.png" alt="Pixel game tab preview" loading="lazy" decoding="async">
+          </div>
+          <div class="home-tab-body">
+            <div class="home-tab-title-row">
+              <span class="home-tab-icon" aria-hidden="true">&#9638;</span>
+              <h3>Pixel Game Tab</h3>
+            </div>
+            <p>Sudoku, Memory Match, Pixel Puzzle, Tic Tac Toe.</p>
+            <a class="home-tab-link" href="pixel-game/pixel-game.html">Open Pixel Tab <span aria-hidden="true">&gt;</span></a>
+          </div>
+        </article>
+
+        <article class="home-tab-card theme-story">
+          <div class="home-tab-media">
+            <img src="assets/homepageimg/storybg.png" alt="Story game tab preview" loading="lazy" decoding="async">
+          </div>
+          <div class="home-tab-body">
+            <div class="home-tab-title-row">
+              <span class="home-tab-icon" aria-hidden="true">&#128214;</span>
+              <h3>Story Game Tab</h3>
+            </div>
+            <p>Choose a character and follow a branching story.</p>
+            <a class="home-tab-link" href="story-game/story-game.html">Open Story Tab <span aria-hidden="true">&gt;</span></a>
+          </div>
+        </article>
+
+        <article class="home-tab-card theme-money">
+          <div class="home-tab-media">
+            <img src="assets/homepageimg/elonbg.png" alt="Elon money tab preview" loading="lazy" decoding="async">
+          </div>
+          <div class="home-tab-body">
+            <div class="home-tab-title-row">
+              <span class="home-tab-icon" aria-hidden="true">&#128176;</span>
+              <h3>Elon Money Tab</h3>
+            </div>
+            <p>Spend a huge fortune on fun items.</p>
+            <a class="home-tab-link" href="elon-money/elon-money.html">Open Money Tab <span aria-hidden="true">&gt;</span></a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="home-benefits" aria-label="Site highlights">
+      <article class="home-benefit-card">
+        <span class="home-benefit-icon violet" aria-hidden="true">&#128737;&#65039;</span>
+        <div>
+          <h3>Safe &amp; Secure</h3>
+          <p>Play safely, anytime.</p>
+        </div>
+      </article>
+      <article class="home-benefit-card">
+        <span class="home-benefit-icon blue" aria-hidden="true">&#9889;</span>
+        <div>
+          <h3>Quick &amp; Fun</h3>
+          <p>Instant games, no download.</p>
+        </div>
+      </article>
+      <article class="home-benefit-card">
+        <span class="home-benefit-icon green" aria-hidden="true">&#127942;</span>
+        <div>
+          <h3>Challenge Yourself</h3>
+          <p>Beat your best score every day.</p>
+        </div>
+      </article>
+      <article class="home-benefit-card">
+        <span class="home-benefit-icon amber" aria-hidden="true">&#9733;</span>
+        <div>
+          <h3>Made for Everyone</h3>
+          <p>Simple controls, endless fun.</p>
+        </div>
+      </article>
+    </section>
+  </main>
+
+  <div class="settings-overlay" id="settings-overlay" aria-hidden="true">
+    <div class="settings-panel" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="settings-header">
+        <h3 id="settings-title">Settings</h3>
+        <button class="btn ghost" type="button" data-settings-close>Close</button>
+      </div>
+      <p class="settings-subtitle">Customize your experience. Changes save to this browser.</p>
+      <div class="settings-grid">
+        <section class="settings-section">
+          <h4>Theme</h4>
+          <label class="settings-option">
+            <input type="radio" name="theme" value="light" data-setting="theme">
+            <span>Light Mode</span>
+          </label>
+          <label class="settings-option">
+            <input type="radio" name="theme" value="dark" data-setting="theme">
+            <span>Dark Mode</span>
+          </label>
+        </section>
+        <section class="settings-section">
+          <h4>Sound Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="sound">
+            <span>Sound Effects</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="music">
+            <span>Background Music</span>
+          </label>
+          <label class="settings-slider">
+            <span>Master Volume: <output id="volume-output">70</output>%</span>
+            <input type="range" min="0" max="100" value="70" data-setting="volume" id="volume-range">
+          </label>
+        </section>
+        <section class="settings-section">
+          <h4>Display Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="compact">
+            <span>Compact Layout</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="showBackground">
+            <span>Show Background Image</span>
+          </label>
+          <div class="settings-hint">Great for smaller screens or quick focus.</div>
+        </section>
+        <section class="settings-section">
+          <h4>Account Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="saveProgress">
+            <span>Save game progress on this device</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="rememberMe">
+            <span>Remember me next visit</span>
+          </label>
+          <div class="settings-hint">Account settings are stored locally.</div>
+        </section>
+        <section class="settings-section">
+          <h4>Privacy Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="shareStats">
+            <span>Share anonymous usage stats</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="personalized">
+            <span>Personalized recommendations</span>
+          </label>
+        </section>
+        <section class="settings-section">
+          <h4>Accessibility Settings</h4>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="largeText">
+            <span>Large text</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="reduceMotion">
+            <span>Reduce motion</span>
+          </label>
+          <label class="settings-option">
+            <input type="checkbox" data-setting="highContrast">
+            <span>High contrast</span>
+          </label>
+        </section>
+      </div>
+      <div class="settings-actions">
+        <button class="btn" type="button" data-settings-reset>Reset to Defaults</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="profile-overlay" id="profile-overlay" aria-hidden="true">
+    <div class="profile-modal" role="dialog" aria-modal="true" aria-labelledby="profile-title">
+      <div class="profile-header">
+        <h3 id="profile-title">Guest Login</h3>
+        <button class="btn ghost" type="button" data-profile-close>Close</button>
+      </div>
+      <p class="profile-subtitle">Choose an emoji and enter a name to create a guest profile.</p>
+      <div class="profile-preview">
+        <span class="profile-avatar large emoji-avatar emoji-placeholder" data-profile-preview-avatar aria-hidden="true">?</span>
+        <div class="profile-preview-text">
+          <div class="profile-preview-name" data-profile-preview-name>Guest</div>
+          <div class="profile-preview-mark">Mark starts at 0</div>
+        </div>
+      </div>
+      <form class="profile-form" id="profile-form">
+        <label class="profile-field">
+          <span>User Name</span>
+          <input id="profile-name" class="profile-input" type="text" maxlength="16" autocomplete="nickname" placeholder="Enter a name">
+        </label>
+        <div class="profile-field">
+          <span>Choose an emoji</span>
+          <div class="profile-emoji-grid" id="profile-emoji-grid"></div>
+        </div>
+        <div class="profile-error" id="profile-error" role="status" aria-live="polite"></div>
+        <div class="profile-actions">
+          <button class="btn primary" type="submit">Start as Guest</button>
+          <button class="btn" type="button" data-profile-cancel>Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="home/home.js"></script>
+  <script src="shared/nav.js"></script>
+  <script src="shared/profile.js"></script>
+  <script src="shared/settings.js"></script>
+</body>
+</html>
