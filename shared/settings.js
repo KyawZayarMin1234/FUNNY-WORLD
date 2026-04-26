@@ -192,6 +192,7 @@
   };
 
   const applySettings = (data) => {
+    document.documentElement.dataset.theme = data.theme;
     document.body.dataset.theme = data.theme;
     document.body.classList.toggle("compact-ui", data.compact);
     document.body.classList.toggle("no-page-bg", !data.showBackground);
@@ -252,6 +253,7 @@
 
   applySettings(settings);
   syncInputs(settings);
+  saveSettings(settings);
 
   settingsButton.addEventListener("click", openSettings);
   if (closeButton) closeButton.addEventListener("click", closeSettings);
@@ -308,4 +310,11 @@
       saveSettings(settings);
     });
   }
+
+  window.addEventListener("storage", (event) => {
+    if (event.key !== STORAGE_KEY) return;
+    settings = loadSettings();
+    applySettings(settings);
+    syncInputs(settings);
+  });
 })();

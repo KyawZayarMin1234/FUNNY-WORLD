@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="story-game.css" />
 </head>
 <body id="top" class="page-bg story-page">
+  <script src="../shared/theme-init.js"></script>
   <header>
     <div class="top-bar">
       <div class="site-brand">
@@ -61,7 +62,7 @@
           <h1 id="story-page-title">Acting Story Game</h1>
           <span class="story-title-accent" aria-hidden="true"></span>
           <p>Choose a genre, then the page changes to show only two stories from that genre.</p>
-          <p>After that, choose one story to reach the play area. You can give real stories later.</p>
+          <p>After that, choose one story to reach the play area with branching choices and multiple endings.</p>
         </div>
         <div class="story-hero-decor" aria-hidden="true">
           <span class="story-orb story-orb-a"></span>
@@ -78,7 +79,6 @@
             </div>
             <div class="genre-choice-content">
               <div class="genre-choice-top">
-                <span class="genre-tag">Step 1</span>
                 <div class="genre-icon genre-icon-adventure" aria-hidden="true">
                   <svg viewBox="0 0 48 48" focusable="false">
                     <path d="M12 8v32M14 10h18l-4 7 4 7H14" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
@@ -109,7 +109,6 @@
             </div>
             <div class="genre-choice-content">
               <div class="genre-choice-top">
-                <span class="genre-tag">Step 1</span>
                 <div class="genre-icon genre-icon-horror" aria-hidden="true">
                   <svg viewBox="0 0 48 48" focusable="false">
                     <path d="M24 8c8.84 0 16 5.82 16 13 0 9.37-10.06 18.31-16 18.31S8 30.37 8 21C8 13.82 15.16 8 24 8Zm-5 13.5c-.97 0-1.75 1.12-1.75 2.5s.78 2.5 1.75 2.5 1.75-1.12 1.75-2.5-.78-2.5-1.75-2.5Zm10 0c-.97 0-1.75 1.12-1.75 2.5s.78 2.5 1.75 2.5 1.75-1.12 1.75-2.5-.78-2.5-1.75-2.5Zm-9.5 8c1.67 1.33 7.33 1.33 9 0" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3.2"/>
@@ -140,7 +139,6 @@
         <div class="story-stage-panel">
           <div class="story-stage-header">
             <div>
-              <p class="story-kicker">Step 2</p>
               <h3 id="story-select-title">Choose a story</h3>
               <p id="story-select-copy">Pick one story to continue to the play area.</p>
             </div>
@@ -155,7 +153,6 @@
         <div class="story-play-shell">
           <div class="story-stage-header story-play-header">
             <div>
-              <p class="story-kicker">Step 3</p>
               <h3 id="story-play-title">Story Play Area</h3>
               <p id="story-play-copy">Make choices to continue the story.</p>
             </div>

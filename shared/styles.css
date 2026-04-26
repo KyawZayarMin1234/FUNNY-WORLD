@@ -36,6 +36,7 @@
   --font-ui: "Sora", "Segoe UI", Arial, sans-serif;
 }
 
+:root[data-theme="dark"],
 body[data-theme="dark"] {
   --bg: #0b1220;
   --bg-2: #121c32;

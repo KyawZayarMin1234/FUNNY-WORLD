@@ -1,3 +1,4 @@
+(() => {
 // Game Tab JavaScript
 const runnerCanvas = document.getElementById("runner-canvas");
 const runnerCtx = runnerCanvas ? runnerCanvas.getContext("2d") : null;
@@ -72,6 +73,29 @@ const clearKeys = () => {
 
 const runnerNumberFormatter = new Intl.NumberFormat("en-US");
 const formatRunnerNumber = (value) => runnerNumberFormatter.format(Number(value) || 0);
+const GAME_STORAGE_KEYS = Object.freeze({
+  runnerHighScore: "fgh-runner-highscore",
+  catchBest: "fgh-catch-best",
+});
+
+const loadStoredNumber = (key, fallback = 0) => {
+  try {
+    const raw = localStorage.getItem(key);
+    const value = raw === null ? fallback : Number(raw);
+    return Number.isFinite(value) ? Math.max(0, Math.floor(value)) : fallback;
+  } catch (error) {
+    return fallback;
+  }
+};
+
+const saveStoredNumber = (key, value) => {
+  try {
+    localStorage.setItem(key, String(Math.max(0, Math.floor(value))));
+  } catch (error) {
+    // Ignore storage errors.
+  }
+};
+
 let runnerSessionActive = false;
 let catchSessionActive = false;
 
@@ -185,15 +209,8 @@ const runnerAudio = {
   musicOn: false,
 };
 
-const runnerHighScoreKey = "fgh-runner-highscore";
-
 const loadRunnerHighScore = () => {
-  try {
-    const stored = localStorage.getItem(runnerHighScoreKey);
-    runnerState.highScore = stored ? Number(stored) || 0 : 0;
-  } catch (error) {
-    runnerState.highScore = 0;
-  }
+  runnerState.highScore = loadStoredNumber(GAME_STORAGE_KEYS.runnerHighScore);
   if (runnerHighEl) runnerHighEl.textContent = formatRunnerNumber(runnerState.highScore);
 };
 
@@ -201,11 +218,7 @@ const saveRunnerHighScore = (score) => {
   if (score <= runnerState.highScore) return;
   runnerState.highScore = score;
   if (runnerHighEl) runnerHighEl.textContent = formatRunnerNumber(runnerState.highScore);
-  try {
-    localStorage.setItem(runnerHighScoreKey, String(runnerState.highScore));
-  } catch (error) {
-    // Ignore storage errors.
-  }
+  saveStoredNumber(GAME_STORAGE_KEYS.runnerHighScore, runnerState.highScore);
 };
 
 const ensureAudio = () => {
@@ -1026,7 +1039,6 @@ document.addEventListener("keyup", (event) => {
 });
 
 // Ball Catch Game State
-const catchBestKey = "fgh-catch-best";
 const catchState = {
   running: false,
   score: 0,
@@ -1096,12 +1108,7 @@ const drawCatchRoundedRect = (ctx, x, y, width, height, radius) => {
 };
 
 const loadCatchBest = () => {
-  try {
-    const stored = localStorage.getItem(catchBestKey);
-    catchState.best = stored ? Number(stored) || 0 : 0;
-  } catch (error) {
-    catchState.best = 0;
-  }
+  catchState.best = loadStoredNumber(GAME_STORAGE_KEYS.catchBest);
   if (catchBestEl) catchBestEl.textContent = String(catchState.best);
 };
 
@@ -1109,11 +1116,7 @@ const saveCatchBest = () => {
   if (catchState.score <= catchState.best) return;
   catchState.best = catchState.score;
   if (catchBestEl) catchBestEl.textContent = String(catchState.best);
-  try {
-    localStorage.setItem(catchBestKey, String(catchState.best));
-  } catch (error) {
-    // Ignore storage errors.
-  }
+  saveStoredNumber(GAME_STORAGE_KEYS.catchBest, catchState.best);
 };
 
 const updateCatchHud = () => {
@@ -1468,3 +1471,4 @@ if (catchCanvas) {
 }
 
 updateMusicButton();
+})();

@@ -1,3 +1,4 @@
+(() => {
 const moneyBox = document.getElementById("money-box");
 const catalogTotal = document.getElementById("catalog-total");
 const spentTotal = document.getElementById("spent-total");
@@ -19,6 +20,7 @@ const shopLayout = document.querySelector(".elon-shop-layout");
 const cartPanel = document.querySelector(".elon-cart-panel");
 const header = document.querySelector("header");
 
+const ELON_STORAGE_KEY = "fgh-elon-money-state-v1";
 const INITIAL_MONEY = 200000000000;
 let money = INITIAL_MONEY;
 let statusMessage = "Pick your first impossible purchase.";
@@ -178,6 +180,68 @@ const formatter = new Intl.NumberFormat("en-US");
 
 function formatMoney(value) {
   return `$${formatter.format(value)}`;
+}
+
+function safeParse(raw) {
+  try {
+    return JSON.parse(raw);
+  } catch (error) {
+    return null;
+  }
+}
+
+function loadElonState() {
+  try {
+    const raw = localStorage.getItem(ELON_STORAGE_KEY);
+    return raw ? safeParse(raw) : null;
+  } catch (error) {
+    return null;
+  }
+}
+
+function applyElonState(savedState) {
+  if (!savedState || typeof savedState !== "object") return;
+
+  const quantities = savedState.quantities && typeof savedState.quantities === "object"
+    ? savedState.quantities
+    : {};
+  let remainingMoney = INITIAL_MONEY;
+
+  items.forEach((item) => {
+    const rawQuantity = Number(quantities[item.key]);
+    const requestedQuantity = Number.isFinite(rawQuantity) ? Math.max(0, Math.floor(rawQuantity)) : 0;
+    const affordableQuantity = Math.floor(remainingMoney / item.price);
+    const stockLimit = Number.isFinite(item.maxStock) ? item.maxStock : affordableQuantity;
+    const nextQuantity = Math.min(requestedQuantity, stockLimit, affordableQuantity);
+    item.quantity = nextQuantity;
+    remainingMoney -= item.price * nextQuantity;
+  });
+
+  money = Math.max(0, remainingMoney);
+  if (typeof savedState.statusMessage === "string" && savedState.statusMessage.trim()) {
+    statusMessage = savedState.statusMessage.trim().slice(0, 140);
+  }
+}
+
+function buildElonState() {
+  return {
+    version: 1,
+    money,
+    quantities: items.reduce((result, item) => {
+      result[item.key] = item.quantity;
+      return result;
+    }, {}),
+    statusMessage,
+    updatedAt: Date.now(),
+  };
+}
+
+function saveElonState() {
+  try {
+    localStorage.setItem(ELON_STORAGE_KEY, JSON.stringify(buildElonState()));
+  } catch (error) {
+    // Ignore storage errors.
+  }
 }
 
 function getPurchasedItems() {
@@ -387,12 +451,14 @@ function buyItem(itemKey) {
 
   if (item.quantity >= item.maxStock) {
     setStatusMessage(`${item.name} is single-stock and already sold out.`);
+    saveElonState();
     updateDashboard();
     return;
   }
 
   if (money < item.price) {
     setStatusMessage("Even Elon cannot afford that one right now.");
+    saveElonState();
     updateDashboard();
     return;
   }
@@ -412,6 +478,7 @@ function buyItem(itemKey) {
     details: `Item: ${item.name} | Price: ${formatMoney(item.price)} | Wallet Left: ${formatMoney(money)}`,
   });
 
+  saveElonState();
   renderState();
 }
 
@@ -421,6 +488,7 @@ function sellItem(itemKey) {
 
   if (item.quantity <= 0) {
     setStatusMessage(`No ${item.name} to sell yet.`);
+    saveElonState();
     updateDashboard();
     return;
   }
@@ -428,6 +496,7 @@ function sellItem(itemKey) {
   item.quantity -= 1;
   money += item.price;
   setStatusMessage(`${item.name} sold. ${item.quantity > 0 ? `You still own ${item.quantity}.` : "Back to zero."}`);
+  saveElonState();
   renderState();
 }
 
@@ -524,4 +593,13 @@ window.addEventListener(
 );
 window.addEventListener("resize", () => requestCartPanelSync(true));
 
+window.addEventListener("storage", (event) => {
+  if (event.key !== ELON_STORAGE_KEY) return;
+  applyElonState(loadElonState());
+  renderState();
+});
+
+applyElonState(loadElonState());
 renderState();
+saveElonState();
+})();

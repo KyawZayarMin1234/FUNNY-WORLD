@@ -1,3 +1,4 @@
+(() => {
 const genreStage = document.getElementById("story-genre-stage");
 const selectStage = document.getElementById("story-select-stage");
 const playStage = document.getElementById("story-play-stage");
@@ -1594,3 +1595,4 @@ if (backToTopButton) {
 
 resetPlayArea();
 showStage("genre");
+})();
