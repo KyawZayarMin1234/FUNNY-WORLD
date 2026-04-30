@@ -89,7 +89,7 @@ Technical Challenges and Solutions
 - Runner obstacle collision detection: bounding box collision.
 - Sudoku validation: check rows, columns, and 3x3 boxes separately.
 - Memory Match flip: toggle CSS classes on click.
-- Story branching: object-based story structure.
+- Story branching: object-based story structuree.
 - Responsive design: CSS Grid and Flexbox.
 - Game state: JavaScript objects for scores and progress.
 
