@@ -12,11 +12,7 @@
 
 FUNNY WORLD is a browser game hub made with HTML, CSS, and Vanilla JavaScript. It includes action games, pixel puzzle games, branching story games, and a funny shopping game where you spend Elon Money.
 
-## Live Website
 
-Open the project here:
-
-[https://kyawzayarmin1234.github.io/FUNNY-WORLD/](https://kyawzayarmin1234.github.io/FUNNY-WORLD/)
 
 ## Pages
 
