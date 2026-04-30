@@ -94,7 +94,7 @@ Technical Challenges and Solutions
 - Game state: JavaScript objects for scores and progress.
 
 Additional Features (Optional)
-- Animations: falling boxes in story game, card flip effects.
+- Animations: falling boxes in story game, card flip effectss.
 - Sound effects for action games and purchases.
 - Dark mode toggle.
 - LocalStorage for progress and high scores.
